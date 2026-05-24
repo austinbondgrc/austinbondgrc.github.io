@@ -161,3 +161,394 @@
       letter-spacing: 0.02em; margin: 0 0 12px 0;
     }
     .project-desc {
+      font-family: var(--sans); font-size: 14px; font-weight: 300;
+      color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; max-width: 580px;
+    }
+    .project-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .project-tag { font-size: 10px; letter-spacing: 0.08em; color: var(--text-dim); padding: 2px 8px; border: 1px solid var(--border); }
+    .project-links { display: flex; gap: 16px; }
+    .project-link { font-size: 11px; letter-spacing: 0.06em; color: var(--text-dim); transition: color 0.2s; }
+    .project-link:hover { color: var(--green); }
+
+    /* EXPERIENCE */
+    .exp-item {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--border);
+    }
+    .exp-item:first-child { border-top: 1px solid var(--border); }
+    h3.exp-company { font-size: 14px; font-weight: 500; color: var(--text); margin: 0 0 4px 0; }
+    .exp-role { font-family: var(--sans); font-size: 13px; color: var(--text-muted); font-weight: 300; }
+    .exp-date { font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; white-space: nowrap; text-align: right; }
+
+    /* STATS */
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-bottom: 48px; }
+    .stat-box { background: var(--surface); border: 1px solid var(--border); padding: 24px 20px; text-align: center; }
+    .stat-num { font-size: 28px; font-weight: 600; color: var(--green); line-height: 1; margin-bottom: 6px; }
+    .stat-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
+    .about-text {
+      font-family: var(--sans); font-size: 16px; font-weight: 300;
+      color: var(--text-muted); line-height: 1.8; max-width: 660px;
+      padding: 32px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .about-text strong { color: var(--text); font-weight: 500; }
+
+    /* CERTS */
+    .cert-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .cert-tag {
+      font-size: 11px; letter-spacing: 0.06em;
+      padding: 5px 12px; border: 1px solid var(--border); background: var(--surface);
+      transition: all 0.2s; color: var(--text-muted);
+    }
+    .cert-tag.active { color: var(--green); border-color: #1a4a2a; background: var(--green-glow2); }
+    .cert-tag.in-progress { color: var(--text-dim); border-color: var(--border); border-style: dashed; }
+    .cert-legend { display: flex; gap: 20px; margin-bottom: 16px; }
+    .cert-legend-item { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); display: flex; align-items: center; gap: 6px; }
+    .legend-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .legend-dot.active { background: var(--green); }
+    .legend-dot.progress { background: var(--text-dim); }
+
+    /* TECH */
+    .tech-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tech-tag {
+      font-size: 11px; letter-spacing: 0.06em; color: var(--green);
+      padding: 4px 10px; border: 1px solid #1a4a2a; background: var(--green-glow2);
+      transition: all 0.2s;
+    }
+    .tech-tag:hover { border-color: var(--green); background: var(--green-glow); }
+
+    /* CONNECT */
+    .connect-links { display: flex; flex-direction: column; gap: 2px; }
+    .connect-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 20px; border: 1px solid var(--border); background: var(--surface);
+      font-size: 13px; color: var(--text-muted); letter-spacing: 0.04em; transition: all 0.2s;
+    }
+    .connect-link:hover { border-color: var(--green); color: var(--green); background: var(--green-glow2); }
+    .connect-arrow { font-size: 11px; color: var(--text-dim); }
+    .connect-link:hover .connect-arrow { color: var(--green); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border); padding: 32px 48px;
+      max-width: 900px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo { font-size: 12px; color: var(--text-dim); }
+    .footer-logo span { color: var(--green); }
+    .footer-copy { font-size: 11px; color: var(--text-dim); }
+
+    /* FADE-IN */
+    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* REDUCED MOTION — respects OS preference */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in { opacity: 1; transform: none; transition: none; }
+      .status-dot { animation: none; opacity: 1; }
+      .hero-name .cursor { animation: none; opacity: 1; }
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 700px) {
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 16px; }
+      main { padding: 100px 20px 60px; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      footer { padding: 24px 20px; flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav aria-label="Primary navigation">
+  <div>
+    <div class="nav-logo"><span>Austin</span>.Bond</div>
+    <div class="nav-sub" aria-hidden="true">portfolio / overview</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#experience">experience</a></li>
+    <li><a href="#certifications">certifications</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+  <div class="nav-status">
+    <div class="status-dot" aria-hidden="true"></div>
+    <span>open to work</span>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero fade-in" aria-labelledby="hero-name">
+    <div class="hero-eyebrow" aria-hidden="true">// InfoSec GRC · ISMS · ISO 27001:2022 · NIS2 · <span>EU · Germany</span></div>
+    <h1 class="hero-name" id="hero-name">Austin Bond<span class="cursor" aria-hidden="true">_</span></h1>
+    <p class="hero-tagline">IT Specialist + Corporate Trainer, transitioning into GRC &nbsp;|&nbsp; Completing MSc Computer Science, Heriot-Watt University</p>
+    <p class="hero-bio">
+      IT specialist and corporate trainer, transitioning into
+      <strong>Information Security GRC</strong>. Studying for an MSc in Computer Science
+      at <strong>Heriot-Watt University</strong>, with the goal of building a career in
+      the German cybersecurity market. Good GRC needs two things: technical fluency and
+      the ability to make compliance requirements understandable to the people who have to act
+      on them. I have spent years developing both. Currently consulting pro-bono on a
+      <strong>live ISO 27001 engagement</strong> and building practical skills through simulated portfolio exercises.
+    </p>
+    <div class="tag-row" role="list" aria-label="Key focus areas">
+      <span class="tag" role="listitem">ISO 27001:2022</span>
+      <span class="tag" role="listitem">EU NIS2</span>
+      <span class="tag" role="listitem">ISO 27005</span>
+      <span class="tag" role="listitem">BSI IT-Grundschutz</span>
+      <span class="tag" role="listitem">Risk Management</span>
+      <span class="tag" role="listitem">Gap Analysis</span>
+      <span class="tag" role="listitem">ISMS Design</span>
+      <span class="tag" role="listitem">Statement of Applicability</span>
+      <span class="tag" role="listitem">Audit Readiness</span>
+      <span class="tag" role="listitem">Germany</span>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="fade-in" aria-labelledby="projects-heading">
+    <div class="section-header">
+      <h2 class="section-title" id="projects-heading">Projects</h2>
+      <span class="section-count"><span>2</span> active</span>
+    </div>
+
+    <article class="project-card">
+      <div class="project-num" aria-hidden="true">01</div>
+      <h3 class="project-title">ISO 27001 GRC Consultant: Demiryürek Yapı A.Ş.</h3>
+      <p class="project-desc">
+        Ongoing pro-bono consulting engagement for a construction firm in Istanbul. Conducting a
+        full ISO 27001:2022 gap analysis across all Annex A control domains, building an
+        information asset inventory, and running a risk assessment per ISO 27005. Work
+        includes non-conformity documentation, Statement of Applicability drafting, and a
+        prioritized remediation roadmap tied to the company's actual risk appetite.
+        Progress reported directly to senior management at each phase.
+      </p>
+      <div class="project-bottom">
+        <div class="project-tags" role="list" aria-label="Topics">
+          <span class="project-tag" role="listitem">iso 27001:2022</span>
+          <span class="project-tag" role="listitem">iso 27005</span>
+          <span class="project-tag" role="listitem">gap analysis</span>
+          <span class="project-tag" role="listitem">risk assessment</span>
+          <span class="project-tag" role="listitem">soa</span>
+          <span class="project-tag" role="listitem">remediation roadmap</span>
+          <span class="project-tag" role="listitem">istanbul</span>
+        </div>
+        <div class="project-links">
+          <span class="project-link" style="color:var(--green);" aria-label="Project status: currently live">● live</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="project-num" aria-hidden="true">02</div>
+      <h3 class="project-title">GRC Portfolio: MunichTech GmbH ISMS</h3>
+      <p class="project-desc">
+        A full ISMS build for a fictional B2B financial data SaaS company based in
+        Germany, covering five domains from the ground up: Governance and Scope, Risk
+        Management, Statement of Applicability, Regulatory Compliance, and Audit Metrics.
+        Built to ISO 27001:2022, EU NIS2, and DSGVO. Every document written as if a
+        real auditor would read it.
+      </p>
+      <div class="project-bottom">
+        <div class="project-tags" role="list" aria-label="Topics">
+          <span class="project-tag" role="listitem">iso 27001:2022</span>
+          <span class="project-tag" role="listitem">eu nis2</span>
+          <span class="project-tag" role="listitem">dsgvo</span>
+          <span class="project-tag" role="listitem">isms</span>
+          <span class="project-tag" role="listitem">risk register</span>
+          <span class="project-tag" role="listitem">soa</span>
+          <span class="project-tag" role="listitem">audit metrics</span>
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://austinbondgrc.github.io/grc-portfolio/" target="_blank" rel="noopener noreferrer" aria-label="View GRC Portfolio (opens in new tab)">view portfolio →</a>
+          <a class="project-link" href="https://github.com/austinbondgrc" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub (opens in new tab)">github →</a>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="fade-in" aria-labelledby="experience-heading">
+    <div class="section-header">
+      <h2 class="section-title" id="experience-heading">Experience</h2>
+      <span class="section-count"><span>5</span> roles</span>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <h3 class="exp-company">Demiryürek Yapı A.Ş.</h3>
+        <p class="exp-role">ISO 27001 GRC Consultant (Pro Bono) · Gap analysis · Risk assessment (ISO 27005) · SoA drafting · Remediation roadmap · Istanbul, Türkiye</p>
+      </div>
+      <div class="exp-date"><time datetime="2025-04">04/2025</time> – present</div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <h3 class="exp-company">Voxy</h3>
+        <p class="exp-role">Corporate Language Trainer · 5,000+ hours delivered to executives and cross-functional teams · Needs analysis · Stakeholder communication</p>
+      </div>
+      <div class="exp-date"><time datetime="2023-01">01/2023</time> – present</div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <h3 class="exp-company">Cambly Inc.</h3>
+        <p class="exp-role">ESL Instructor · 7,000+ students across 20+ countries · A1–C2 proficiency range · Cross-cultural professional communication</p>
+      </div>
+      <div class="exp-date"><time datetime="2019-04">04/2019</time> – present</div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <h3 class="exp-company">Experimax</h3>
+        <p class="exp-role">Apple Certified Mac &amp; iOS Technical Advisor (ACiT / ACMT) · Endpoint security · Data protection · Access controls · Device lifecycle · Houston, TX</p>
+      </div>
+      <div class="exp-date"><time datetime="2016-01">01/2016</time> – <time datetime="2019-02">02/2019</time></div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <h3 class="exp-company">Krishna Culture</h3>
+        <p class="exp-role">Sole IT Specialist · Server and infrastructure administration · IAM · Risk and continuity · E-commerce platform migration · Houston, TX</p>
+      </div>
+      <div class="exp-date"><time datetime="2012-12">12/2012</time> – <time datetime="2016-01">01/2016</time></div>
+    </div>
+
+  </section>
+
+  <!-- STATS + ABOUT -->
+  <section class="fade-in" aria-label="Background and statistics">
+    <div class="stats-grid" role="list" aria-label="Key numbers">
+      <div class="stat-box" role="listitem">
+        <div class="stat-num">5K+</div>
+        <div class="stat-label">training hours</div>
+      </div>
+      <div class="stat-box" role="listitem">
+        <div class="stat-num">7K+</div>
+        <div class="stat-label">students taught</div>
+      </div>
+      <div class="stat-box" role="listitem">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">countries</div>
+      </div>
+      <div class="stat-box" role="listitem">
+        <div class="stat-num">1</div>
+        <div class="stat-label">live GRC client</div>
+      </div>
+    </div>
+    <p class="about-text">
+      My path into GRC came from two places: years working in IT, where I learned how
+      systems actually behave, and years as a corporate trainer, where I learned how to
+      make technical things legible to the people who don't live inside them. In compliance
+      work, both matter. <strong>Controls nobody understands won't get followed. Policies
+      written like legal boilerplate won't get implemented.</strong> I know how to build
+      the thing, and I know what it has to do. Right now I am focused on the German market,
+      mapping ISO 27001 controls to the <strong>BSI IT-Grundschutz compendium</strong> in
+      Verinice, working toward TELC C1 German, and finishing my
+      <strong>MSc in Computer Science at Heriot-Watt University</strong>.
+    </p>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="fade-in" aria-labelledby="certifications-heading">
+    <div class="section-header">
+      <h2 class="section-title" id="certifications-heading">Certifications</h2>
+      <span class="section-count"><span>4</span> achieved · <span style="color:var(--text-dim)">4</span> in progress</span>
+    </div>
+    <div class="cert-legend" aria-hidden="true">
+      <div class="cert-legend-item"><div class="legend-dot active"></div> achieved</div>
+      <div class="cert-legend-item"><div class="legend-dot progress"></div> in progress</div>
+    </div>
+    <div class="cert-grid" role="list" aria-label="Certifications">
+      <span class="cert-tag active" role="listitem">PECB ISO/IEC 27001 Provisional Implementer</span>
+      <span class="cert-tag active" role="listitem">Apple Certified Technician (ACiT)</span>
+      <span class="cert-tag active" role="listitem">Apple Certified Mac Technician (ACMT)</span>
+      <span class="cert-tag active" role="listitem">TESOL Certification</span>
+      <span class="cert-tag in-progress" role="listitem"><span class="sr-only">In progress: </span>PECB ISO/IEC 27001 Lead Auditor</span>
+      <span class="cert-tag in-progress" role="listitem"><span class="sr-only">In progress: </span>PECB NIS2 Directive</span>
+      <span class="cert-tag in-progress" role="listitem"><span class="sr-only">In progress: </span>Associate of ISC2, path to CISSP</span>
+      <span class="cert-tag in-progress" role="listitem"><span class="sr-only">In progress: </span>TELC C1 German</span>
+    </div>
+  </section>
+
+  <!-- TECHNICAL PROFICIENCIES -->
+  <section class="fade-in" aria-labelledby="tech-heading">
+    <div class="section-header">
+      <h2 class="section-title" id="tech-heading">Technical Proficiencies</h2>
+    </div>
+    <div class="tech-grid" role="list" aria-label="Technical skills">
+      <span class="tech-tag" role="listitem">ISO 27001:2022</span>
+      <span class="tech-tag" role="listitem">EU NIS2 Directive</span>
+      <span class="tech-tag" role="listitem">DSGVO / GDPR</span>
+      <span class="tech-tag" role="listitem">ISO 27005</span>
+      <span class="tech-tag" role="listitem">BSI IT-Grundschutz</span>
+      <span class="tech-tag" role="listitem">Verinice</span>
+      <span class="tech-tag" role="listitem">NIST CSF</span>
+      <span class="tech-tag" role="listitem">Gap Analysis</span>
+      <span class="tech-tag" role="listitem">Risk Register</span>
+      <span class="tech-tag" role="listitem">Statement of Applicability</span>
+      <span class="tech-tag" role="listitem">Control Mapping</span>
+      <span class="tech-tag" role="listitem">ISMS Scoping</span>
+      <span class="tech-tag" role="listitem">Audit Evidence</span>
+      <span class="tech-tag" role="listitem">Remediation Roadmaps</span>
+      <span class="tech-tag" role="listitem">Policy Drafting</span>
+      <span class="tech-tag" role="listitem">Vendor Risk</span>
+      <span class="tech-tag" role="listitem">IAM Principles</span>
+      <span class="tech-tag" role="listitem">Endpoint Security</span>
+      <span class="tech-tag" role="listitem">macOS / iOS</span>
+      <span class="tech-tag" role="listitem">GitHub</span>
+      <span class="tech-tag" role="listitem">Markdown</span>
+      <span class="tech-tag" role="listitem">HTML / CSS</span>
+      <span class="tech-tag" role="listitem">Microsoft 365</span>
+    </div>
+  </section>
+
+  <!-- CONNECT -->
+  <section id="contact" class="fade-in" aria-labelledby="contact-heading">
+    <div class="section-header">
+      <h2 class="section-title" id="contact-heading">Connect</h2>
+    </div>
+    <div class="connect-links">
+      <a class="connect-link" href="https://austinbondgrc.github.io/grc-portfolio/" target="_blank" rel="noopener noreferrer" aria-label="GRC Portfolio (opens in new tab)">
+        GRC Portfolio
+        <span class="connect-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="connect-link" href="https://www.linkedin.com/in/austinbondgrc" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in new tab)">
+        LinkedIn
+        <span class="connect-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="connect-link" href="https://github.com/austinbondgrc" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in new tab)">
+        GitHub
+        <span class="connect-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="connect-link" href="mailto:austinbond@protonmail.com" aria-label="Send email to austinbond at protonmail dot com">
+        austinbond@protonmail.com
+        <span class="connect-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-logo"><span>Austin</span>.Bond · InfoSec GRC · Germany</div>
+  <div class="footer-copy">© 2026</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
