@@ -20,15 +20,14 @@
       --green-dim: #22c55e;
       --green-glow: rgba(74,222,128,0.12);
       --green-glow2: rgba(74,222,128,0.06);
-      --text: #e2e8df;       /* 15.7:1 contrast — main text */
-      --text-muted: #aabca8; /* 9.7:1  contrast — body copy, was #7a8c78 at 2.1:1 */
-      --text-dim: #8fa08d;   /* 7.0:1  contrast — dates, labels, secondary info */
-      --text-xdim: #4a5a48;  /* decorative only — always paired with aria-hidden */
+      --text: #e2e8df;
+      --text-muted: #aabca8;
+      --text-dim: #8fa08d;
+      --text-xdim: #4a5a48;
       --mono: 'IBM Plex Mono', monospace;
       --sans: 'IBM Plex Sans', sans-serif;
     }
 
-    /* SCREEN READER ONLY */
     .sr-only {
       position: absolute; width: 1px; height: 1px;
       padding: 0; margin: -1px; overflow: hidden;
@@ -56,7 +55,6 @@
     }
     a { color: inherit; text-decoration: none; }
 
-    /* FOCUS — visible keyboard outline */
     a:focus-visible,
     button:focus-visible {
       outline: 2px solid var(--green);
@@ -64,7 +62,7 @@
       border-radius: 2px;
     }
 
-    /* NAV */
+    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -100,11 +98,103 @@
     }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
-    /* LAYOUT */
+    /* ── HAMBURGER BUTTON — hidden on desktop ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: 1px solid var(--border2);
+      cursor: pointer;
+      padding: 8px 10px;
+      border-radius: 2px;
+      transition: border-color 0.2s;
+    }
+    .nav-hamburger:hover { border-color: var(--green); }
+    .nav-hamburger span {
+      display: block;
+      width: 18px;
+      height: 1px;
+      background: var(--text-muted);
+      transition: transform 0.3s ease, opacity 0.3s ease, background 0.2s;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+      background: var(--green);
+    }
+    .nav-hamburger.open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .nav-hamburger.open span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+      background: var(--green);
+    }
+
+    /* ── MOBILE NAV OVERLAY — z-index 99, sits just below nav (100) ── */
+    .nav-mobile-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(13,15,14,0.97);
+      backdrop-filter: blur(16px);
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .nav-mobile-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .nav-mobile-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-mobile-links a {
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      transition: color 0.2s;
+    }
+    .nav-mobile-links a::before {
+      content: '// ';
+      color: var(--text-xdim);
+      font-size: 13px;
+      letter-spacing: 0;
+    }
+    .nav-mobile-links a:hover,
+    .nav-mobile-links a:focus-visible { color: var(--green); }
+    .nav-mobile-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--border2);
+    }
+    .nav-mobile-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── LAYOUT ── */
     main { max-width: 900px; margin: 0 auto; padding: 140px 48px 80px; }
     section { margin-bottom: 100px; }
 
-    /* HERO */
+    /* ── HERO ── */
     .hero { padding-top: 20px; }
     .hero-eyebrow { font-size: 12px; color: var(--text-xdim); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 28px; }
     .hero-eyebrow span { color: var(--green); }
@@ -130,7 +220,7 @@
     }
     .tag:hover { border-color: var(--green); color: var(--green); background: var(--green-glow2); }
 
-    /* SECTION HEADER */
+    /* ── SECTION HEADER ── */
     .section-header {
       display: flex; align-items: baseline; justify-content: space-between;
       margin-bottom: 40px; padding-bottom: 16px; border-bottom: 1px solid var(--border);
@@ -138,12 +228,12 @@
     h2.section-title {
       font-size: 12px; font-weight: 500; letter-spacing: 0.12em;
       text-transform: uppercase; color: var(--text-muted);
-      margin: 0; padding: 0; /* reset h2 browser defaults */
+      margin: 0; padding: 0;
     }
     .section-count { font-size: 11px; color: var(--text-dim); }
     .section-count span { color: var(--green); }
 
-    /* PROJECTS */
+    /* ── PROJECTS ── */
     .project-card {
       border: 1px solid var(--border); background: var(--surface);
       padding: 28px 32px; margin-bottom: 2px;
@@ -171,7 +261,7 @@
     .project-link { font-size: 11px; letter-spacing: 0.06em; color: var(--text-dim); transition: color 0.2s; }
     .project-link:hover { color: var(--green); }
 
-    /* EXPERIENCE */
+    /* ── EXPERIENCE ── */
     .exp-item {
       display: grid; grid-template-columns: 1fr auto;
       gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--border);
@@ -181,7 +271,7 @@
     .exp-role { font-family: var(--sans); font-size: 13px; color: var(--text-muted); font-weight: 300; }
     .exp-date { font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; white-space: nowrap; text-align: right; }
 
-    /* STATS */
+    /* ── STATS ── */
     .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-bottom: 48px; }
     .stat-box { background: var(--surface); border: 1px solid var(--border); padding: 24px 20px; text-align: center; }
     .stat-num { font-size: 28px; font-weight: 600; color: var(--green); line-height: 1; margin-bottom: 6px; }
@@ -193,7 +283,7 @@
     }
     .about-text strong { color: var(--text); font-weight: 500; }
 
-    /* CERTS */
+    /* ── CERTS ── */
     .cert-grid { display: flex; flex-wrap: wrap; gap: 6px; }
     .cert-tag {
       font-size: 11px; letter-spacing: 0.06em;
@@ -208,7 +298,7 @@
     .legend-dot.active { background: var(--green); }
     .legend-dot.progress { background: var(--text-dim); }
 
-    /* TECH */
+    /* ── TECH ── */
     .tech-grid { display: flex; flex-wrap: wrap; gap: 6px; }
     .tech-tag {
       font-size: 11px; letter-spacing: 0.06em; color: var(--green);
@@ -217,7 +307,7 @@
     }
     .tech-tag:hover { border-color: var(--green); background: var(--green-glow); }
 
-    /* CONNECT */
+    /* ── CONNECT ── */
     .connect-links { display: flex; flex-direction: column; gap: 2px; }
     .connect-link {
       display: flex; align-items: center; justify-content: space-between;
@@ -228,7 +318,7 @@
     .connect-arrow { font-size: 11px; color: var(--text-dim); }
     .connect-link:hover .connect-arrow { color: var(--green); }
 
-    /* FOOTER */
+    /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border); padding: 32px 48px;
       max-width: 900px; margin: 0 auto;
@@ -238,31 +328,63 @@
     .footer-logo span { color: var(--green); }
     .footer-copy { font-size: 11px; color: var(--text-dim); }
 
-    /* FADE-IN */
+    /* ── FADE-IN ── */
     .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* REDUCED MOTION — respects OS preference */
+    /* ── REDUCED MOTION ── */
     @media (prefers-reduced-motion: reduce) {
       .fade-in { opacity: 1; transform: none; transition: none; }
       .status-dot { animation: none; opacity: 1; }
       .hero-name .cursor { animation: none; opacity: 1; }
+      .nav-mobile-overlay { transition: none; }
+      .nav-hamburger span { transition: none; }
       *, *::before, *::after {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
       }
     }
 
+    /* ── MOBILE BREAKPOINT ── */
     @media (max-width: 700px) {
+      /* Nav: hide desktop items, show hamburger */
       nav { padding: 14px 20px; }
-      .nav-links { gap: 16px; }
+      .nav-links { display: none; }
+      .nav-status { display: none; }
+      .nav-hamburger { display: flex; }
+
+      /* Content */
       main { padding: 100px 20px 60px; }
       .stats-grid { grid-template-columns: repeat(2,1fr); }
-      footer { padding: 24px 20px; flex-direction: column; gap: 8px; }
+
+      /* Experience: stack role + date vertically */
+      .exp-item { grid-template-columns: 1fr; gap: 4px; }
+      .exp-date { text-align: left; }
+
+      /* Project cards: tighter padding */
+      .project-card { padding: 20px 18px; }
+
+      /* Footer */
+      footer { padding: 24px 20px; flex-direction: column; gap: 8px; text-align: center; }
     }
   </style>
 </head>
 <body>
+
+<!-- MOBILE NAV OVERLAY — rendered before <nav> so nav stays on top in z-order -->
+<div class="nav-mobile-overlay" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <ul class="nav-mobile-links">
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#experience">experience</a></li>
+    <li><a href="#certifications">certifications</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+  <div class="nav-mobile-divider" aria-hidden="true"></div>
+  <div class="nav-mobile-status">
+    <div class="status-dot" aria-hidden="true"></div>
+    <span>open to work</span>
+  </div>
+</div>
 
 <nav aria-label="Primary navigation">
   <div>
@@ -279,6 +401,18 @@
     <div class="status-dot" aria-hidden="true"></div>
     <span>open to work</span>
   </div>
+  <!-- Hamburger — visible only on mobile -->
+  <button
+    class="nav-hamburger"
+    id="nav-hamburger"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+    aria-controls="mobile-nav"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <main>
@@ -287,7 +421,7 @@
   <section class="hero fade-in" aria-labelledby="hero-name">
     <div class="hero-eyebrow" aria-hidden="true"><span>// InfoSec GRC · ISMS · ISO 27001:2022 · NIS2 · EU · Germany</span></div>
     <h1 class="hero-name" id="hero-name">Austin Bond<span class="cursor" aria-hidden="true">_</span></h1>
-    <p class="hero-tagline"><span>IT Specialist + Corporate Trainer, Transitioning into GRC<br>Completing MSc Computer Science, Heriot-Watt University<span></p>
+    <p class="hero-tagline"><span>IT Specialist + Corporate Trainer, Transitioning into GRC<br>Completing MSc Computer Science, Heriot-Watt University</span></p>
     <p class="hero-bio">
       IT specialist and corporate trainer, transitioning into
       <strong>Information Security GRC</strong>. Studying for an MSc in Computer Science
@@ -346,6 +480,7 @@
       </div>
     </article>
 
+    <!-- Fixed mismatched div tags from original -->
     <article class="project-card">
       <div class="project-num" aria-hidden="true">02</div>
       <h3 class="project-title">GRC Portfolio: MunichTech GmbH ISMS</h3>
@@ -366,12 +501,11 @@
           <span class="project-tag" role="listitem">soa</span>
           <span class="project-tag" role="listitem">audit metrics</span>
         </div>
-        <div class="project-links">
-          </div>
-          <span class="project-link" style="color:var(--green);" aria-label="Project status: currently live">● live</span>
-        </div>
-          <a class="project-link" href="https://austinbondgrc.github.io/grc-portfolio/" target="_blank" rel="noopener noreferrer" aria-label="View GRC Portfolio (opens in new tab)">view portfolio →</a>
-        </div>
+        <span class="project-link" style="color:var(--green);" aria-label="Project status: currently live">● live</span>
+      </div>
+      <div class="project-links" style="margin-top: 14px;">
+        <a class="project-link" href="https://austinbondgrc.github.io/grc-portfolio/" target="_blank" rel="noopener noreferrer" aria-label="View GRC Portfolio (opens in new tab)">view portfolio →</a>
+      </div>
     </article>
 
   </section>
@@ -540,11 +674,48 @@
 </footer>
 
 <script>
+  // Fade-in on scroll
   const observer = new IntersectionObserver(
     entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
     { threshold: 0.08 }
   );
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Mobile hamburger menu
+  const hamburger = document.getElementById('nav-hamburger');
+  const mobileOverlay = document.getElementById('mobile-nav');
+  const mobileLinks = document.querySelectorAll('.nav-mobile-links a');
+
+  function openMenu() {
+    mobileOverlay.classList.add('open');
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Close navigation menu');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    mobileOverlay.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open navigation menu');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', () => {
+    mobileOverlay.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  // Close when a link is tapped
+  mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+  // Close on Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileOverlay.classList.contains('open')) {
+      closeMenu();
+      hamburger.focus();
+    }
+  });
 </script>
 
 </body>
