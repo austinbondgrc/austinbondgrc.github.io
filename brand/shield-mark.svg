@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 72" width="64" height="72" role="img" aria-labelledby="abShieldTitle abShieldDesc">
+  <!--
+    Canonical brand mark for Austin Bond — InfoSec GRC | ISMS.
+    Single source of truth: this file is inlined into index.html (navigation,
+    footer, hero watermark and favicon) and also consumed by tools/og-image.html
+    so the site and the social preview carry an identical mark.
+
+    THE MARK IS AN OUTER SHIELD LINING AND NOTHING ELSE.
+    There is no inner shield, no fill and no diamond. That is deliberate, and
+    it means the stroke weight alone carries the shape at every size, so the
+    weight is set for the SMALLEST use rather than the largest:
+
+      stroke-width 5  ->  2.03px at the 26x29px navigation lockup
+                          1.72px at the 22x25px footer lockup
+                          ~32px  at the hero watermark (130% of a 20rem box)
+
+    The path is inset inside the 0 0 64 72 box so the stroke never clips. The
+    tightest point is the bottom of the shield at y=68.6: with a 5-unit stroke
+    it reaches y=71.1, which is still 0.9 units inside the box. If you thicken
+    the stroke, re-check that inset first.
+
+    NOTE: This is a reconstruction, not the original vector from the printed
+    business card. To swap in the real artwork, replace the <path> below and
+    keep the icon's bounding box at 0 0 64 72 so layout is unaffected.
+
+    Gradient ids are prefixed `ab` to avoid collisions when this SVG is
+    inlined alongside other SVG in the same document.
+  -->
+  <title id="abShieldTitle">Austin Bond — Information Security GRC brand mark</title>
+  <desc id="abShieldDesc">A single shield outline in champagne gold: an outer lining only, with no inner shield or diamond.</desc>
+
+  <defs>
+    <linearGradient id="abShieldFoil" gradientUnits="userSpaceOnUse" x1="4" y1="2" x2="60" y2="70.4">
+      <stop offset="0" stop-color="#E9D4A0"/>
+      <stop offset="0.45" stop-color="#D2A64E"/>
+      <stop offset="1" stop-color="#A87F33"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer shield lining — the whole mark -->
+  <path d="M32 4.2 L58 14 V41 C58 55 46.6 64.6 32 68.6 C17.4 64.6 6 55 6 41 V14 Z"
+        fill="none" stroke="url(#abShieldFoil)" stroke-width="5"
+        stroke-linejoin="round"/>
+</svg>
