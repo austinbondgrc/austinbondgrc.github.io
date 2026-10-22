@@ -43,7 +43,7 @@
   "jobTitle": "ISO 27001 GRC Consultant (pro bono)",
   "description": "IT specialist and corporate trainer transitioning into Information Security GRC, specialising in ISO 27001:2022, EU NIS2 and ISO 27005, and building a career in the German cybersecurity market.",
   "url": "https://austinbondgrc.github.io/",
-  "image": "https://austinbondgrc.github.io/Headshot.png",
+  "image": "https://austinbondgrc.github.io/Headshot.jpeg",
   "sameAs": [
     "https://www.linkedin.com/in/austinbondgrc",
     "https://github.com/austinbondgrc"
@@ -1448,13 +1448,12 @@ html.js .iso:not(.is-in) .mbar__tick{left:0}
         </svg>
         <span class="portrait__rule" aria-hidden="true"></span>
         <span class="portrait__frame" aria-hidden="true"></span>
-        <!-- Full-resolution PNG master. The WebP/JPEG derivatives this used to
-             point at were visibly lossy at the size the portrait renders, so the
-             original is served directly instead. The width/height attributes
-             keep the 4:4.3 box reserved before the image arrives. If the 1.3 MB
-             transfer ever becomes the bigger problem, a losslessly
-             recompressed PNG is the next step, not a lossy re-encode. -->
-        <img src="Headshot.png" alt="Austin Bond" width="992" height="1056" fetchpriority="high" data-i18n-attr="alt:hero.photoAlt">
+        <!-- Owner-supplied master, served exactly as exported: no downscale, no
+             re-encode. An earlier set of WebP/JPEG derivatives was visibly lossy
+             at the size the portrait renders, so do not reintroduce a lossy step
+             here. The width/height attributes keep the 4:4.3 box reserved before
+             the image arrives. -->
+        <img src="Headshot.jpeg" alt="Austin Bond" width="992" height="1056" fetchpriority="high" data-i18n-attr="alt:hero.photoAlt">
       </div>
     </div>
   </div>
