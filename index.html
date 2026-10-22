@@ -6,7 +6,7 @@
 
 
 
-<title>Austin Bond — Information Security GRC | ISO 27001 &amp; NIS2</title>
+<title>Austin Bond · Information Security GRC | ISO 27001 &amp; NIS2</title>
 <meta name="description" content="IT specialist and corporate trainer transitioning into Information Security GRC. ISO 27001:2022, EU NIS2 and ISO 27005. Completing an MSc in Computer Science at Heriot-Watt University. Building a GRC career in the German market.">
 <link rel="canonical" href="https://austinbondgrc.github.io/">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -16,23 +16,23 @@
 <!-- Open Graph -->
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Austin Bond">
-<meta property="og:title" content="Austin Bond — Information Security GRC | ISO 27001 &amp; NIS2">
+<meta property="og:title" content="Austin Bond · Information Security GRC | ISO 27001 &amp; NIS2">
 <meta property="og:description" content="IT specialist and corporate trainer transitioning into Information Security GRC. ISO 27001:2022, EU NIS2 and ISO 27005. Building a GRC career in the German market.">
 <meta property="og:url" content="https://austinbondgrc.github.io/">
 <meta property="og:image" content="https://austinbondgrc.github.io/og-image.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Austin Bond — Information Security GRC | ISO 27001 &amp; NIS2 | MSc Computer Science">
+<meta property="og:image:alt" content="Austin Bond · Information Security GRC | ISO 27001 &amp; NIS2 | MSc Computer Science">
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="de_DE">
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Austin Bond — Information Security GRC | ISO 27001 &amp; NIS2">
+<meta name="twitter:title" content="Austin Bond · Information Security GRC | ISO 27001 &amp; NIS2">
 <meta name="twitter:description" content="IT specialist and corporate trainer transitioning into Information Security GRC. ISO 27001:2022, EU NIS2 and ISO 27005.">
 <meta name="twitter:image" content="https://austinbondgrc.github.io/og-image.png">
-<meta name="twitter:image:alt" content="Austin Bond — Information Security GRC | ISO 27001 &amp; NIS2 | MSc Computer Science">
+<meta name="twitter:image:alt" content="Austin Bond · Information Security GRC | ISO 27001 &amp; NIS2 | MSc Computer Science">
 
 <!-- Structured data -->
 <script type="application/ld+json">
@@ -43,7 +43,7 @@
   "jobTitle": "ISO 27001 GRC Consultant (pro bono)",
   "description": "IT specialist and corporate trainer transitioning into Information Security GRC, specialising in ISO 27001:2022, EU NIS2 and ISO 27005, and building a career in the German cybersecurity market.",
   "url": "https://austinbondgrc.github.io/",
-  "image": "https://austinbondgrc.github.io/Headshot-640.jpg",
+  "image": "https://austinbondgrc.github.io/Headshot.png",
   "sameAs": [
     "https://www.linkedin.com/in/austinbondgrc",
     "https://github.com/austinbondgrc"
@@ -508,14 +508,6 @@ strong{font-weight:600;color:var(--text)}
   position:relative;
   overflow:hidden;
 }
-.hero::before{
-  content:'';
-  position:absolute;
-  inset:-25% -10% auto 42%;
-  height:130%;
-  background:radial-gradient(58% 52% at 50% 42%,rgba(210,166,78,.15),transparent 68%);
-  pointer-events:none;
-}
 .hero__grid{
   position:relative;
   display:grid;
@@ -538,6 +530,20 @@ strong{font-weight:600;color:var(--text)}
   line-height:1.5;
   color:var(--gold);
   font-weight:400;
+  max-width:32rem;
+  margin-bottom:.2rem;
+}
+/* The direction gets its own line instead of riding on the job title behind a
+   separator. It is the claim the rest of the page has to back up, so it sits at
+   the same size as the job title rather than a step below it: the two lines read
+   as one statement. What separates them is weight, not scale. Public Sans is a
+   variable font, so 340 against the job title's 400 settles the second line
+   back without shrinking it. */
+.hero__role-dir{
+  font-size:var(--step-1);
+  font-weight:340;
+  line-height:1.5;
+  color:var(--gold);
   max-width:32rem;
   margin-bottom:var(--s5);
 }
@@ -638,7 +644,7 @@ strong{font-weight:600;color:var(--text)}
    attributes so the browser reserves the right box before load, but the height
    attribute is a presentational hint. With no explicit height declaration it
    wins, the used height stays locked at the image's 1056px natural height, and
-   `aspect-ratio` never gets a chance to apply — the portrait renders as a
+   `aspect-ratio` never gets a chance to apply, and the portrait renders as a
    368x1056 slab. Declaring height:auto hands the box back to aspect-ratio. */
 .portrait img{
   position:relative;
@@ -784,6 +790,73 @@ strong{font-weight:600;color:var(--text)}
 .career__link:hover,.career__link:focus-visible{border-color:var(--gold)}
 .career__link svg{width:11px;height:11px;flex:none}
 .career__link path{stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+/* Events and volunteering. The list above is employment, newest first, on the
+   spine. These entries belong to the same chronology without competing with it,
+   so they sit below a hairline with no dots and no spine. The first line of an
+   entry carries the weight; anything after it is context and steps down a
+   level, which keeps two entries readable without headings. */
+.career__extra{
+  margin-top:var(--s6);
+  padding-top:var(--s5);
+  border-top:1px solid var(--rule-hair);
+}
+.career__extra-title{
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:580;
+  margin-bottom:var(--s3);
+}
+.career__extra-list{display:grid;gap:var(--s4)}
+.career__extra-item{
+  display:grid;
+  grid-template-columns:6.5rem minmax(0,1fr);
+  gap:.2rem 1rem;
+  align-items:baseline;
+}
+.career__extra-period{
+  font-size:.7rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--text-dim);
+  font-weight:520;
+  font-feature-settings:'tnum';
+}
+.career__extra-what{font-size:.95rem;color:var(--text);font-weight:520;line-height:1.45}
+.career__extra-note{
+  margin-top:.35rem;
+  font-size:.86rem;
+  color:var(--text-dim);
+  line-height:1.62;
+  max-width:42rem;
+}
+
+/* Two photographs from the conference. Held to a 4:3 box so the pair share one
+   baseline whatever the originals were cropped to, and lazy-loaded because they
+   sit far below the fold. The margins are reset by hand: the UA gives every
+   figure a 40px inset, which would pull this pair off the text column it is
+   meant to align with. */
+.conf{margin:1rem 0 0}
+.conf__pair{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.conf__pair img{
+  width:100%;
+  height:auto;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border:1px solid var(--rule-hair);
+  border-radius:2px;
+  background:var(--ink-2);
+}
+.conf figcaption{
+  margin-top:.55rem;
+  font-size:.7rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--text-dim);
+  font-weight:520;
+}
 
 /* ==========================================================================
    10. PROJECTS
@@ -1241,6 +1314,8 @@ html.js .iso:not(.is-in) .mbar__tick{left:0}
   .sec-meta{width:100%}
   .radar{--radar-label:19px;max-width:100%}
   .heat{max-width:100%}
+  .career__extra-item{grid-template-columns:1fr;gap:.25rem}
+  .conf__pair{gap:.4rem}
 }
 @media (max-width:359px){
   /* Smallest supported viewports (320px): tighten the nav row so the burger
@@ -1306,7 +1381,7 @@ html.js .iso:not(.is-in) .mbar__tick{left:0}
         <span class="brand__name" data-i18n="nav.brandName">Austin Bond</span>
         <span class="brand__sub" data-i18n="nav.credentialLine1">InfoSec GRC | ISMS</span>
       </span>
-      <span class="sr-only" data-i18n="nav.brandHome">— Home</span>
+      <span class="sr-only" data-i18n="nav.brandHome">Home page</span>
     </a>
 
     <nav class="nav__links" aria-label="Primary">
@@ -1336,7 +1411,8 @@ html.js .iso:not(.is-in) .mbar__tick{left:0}
     <div class="hero__text">
       <p class="eyebrow reveal" style="--i:0" data-i18n="hero.eyebrow">Information Security GRC · ISMS · ISO 27001:2022 · NIS2</p>
       <h1 class="hero__name display reveal" style="--i:1" data-i18n="hero.name">Austin Bond</h1>
-      <p class="hero__role reveal" style="--i:2" data-i18n="hero.role">IT Specialist &amp; Corporate Trainer · Transitioning into Information Security GRC</p>
+      <p class="hero__role reveal" style="--i:2" data-i18n="hero.role">IT Specialist &amp; Corporate Trainer</p>
+      <p class="hero__role-dir reveal" style="--i:2" data-i18n="hero.roleDirection">Transitioning into Information Security GRC</p>
       <p class="hero__bio reveal" style="--i:3" data-i18n-html="hero.bio">IT specialist and corporate trainer, transitioning into <strong>Information Security GRC</strong>. Studying for an MSc in Computer Science at <strong>Heriot-Watt University</strong>, with the goal of building a career in the German cybersecurity market. Good GRC needs two things: technical fluency and the ability to make compliance requirements understandable to the people who have to act on them. I have spent years developing both. Currently consulting pro-bono on a <strong>live ISO 27001 engagement</strong> and building practical skills through simulated portfolio exercises.</p>
       <div class="hero__cta reveal" style="--i:4">
         <a class="btn btn--primary" href="#connect" data-i18n="hero.cta.primary">Get in Touch</a>
@@ -1372,15 +1448,13 @@ html.js .iso:not(.is-in) .mbar__tick{left:0}
         </svg>
         <span class="portrait__rule" aria-hidden="true"></span>
         <span class="portrait__frame" aria-hidden="true"></span>
-        <!-- Responsive sources: the portrait is never wider than 20rem (320px)
-             on screen, so the 992px master was being downscaled by ~3x on every
-             visit. WebP first, JPEG as the fallback, both at 320 and 640 wide.
-             The width/height attributes keep the 4:4.3 box reserved before the
-             image arrives, so nothing shifts when it does. -->
-        <picture>
-          <source type="image/webp" srcset="Headshot-320.webp 320w, Headshot-640.webp 640w" sizes="(max-width:980px) 16rem, 20rem">
-          <img src="Headshot-640.jpg" srcset="Headshot-320.jpg 320w, Headshot-640.jpg 640w" sizes="(max-width:980px) 16rem, 20rem" alt="Austin Bond" width="992" height="1056" fetchpriority="high" data-i18n-attr="alt:hero.photoAlt">
-        </picture>
+        <!-- Full-resolution PNG master. The WebP/JPEG derivatives this used to
+             point at were visibly lossy at the size the portrait renders, so the
+             original is served directly instead. The width/height attributes
+             keep the 4:4.3 box reserved before the image arrives. If the 1.3 MB
+             transfer ever becomes the bigger problem, a losslessly
+             recompressed PNG is the next step, not a lossy re-encode. -->
+        <img src="Headshot.png" alt="Austin Bond" width="992" height="1056" fetchpriority="high" data-i18n-attr="alt:hero.photoAlt">
       </div>
     </div>
   </div>
@@ -1497,6 +1571,40 @@ html.js .iso:not(.is-in) .mbar__tick{left:0}
         </ul>
       </li>
     </ol>
+
+    <div class="career__extra reveal">
+      <h3 class="career__extra-title" data-i18n="career.extra.title">Community and events</h3>
+      <ul class="career__extra-list">
+        <li class="career__extra-item">
+          <span class="career__extra-period"><time datetime="2026" data-i18n="career.extra.1.period">2026 – present</time></span>
+          <div class="career__extra-body">
+            <p class="career__extra-what" data-i18n="career.extra.1">Member of the ISACA Global Volunteer Pool</p>
+            <p class="career__extra-note" data-i18n="career.extra.1.note">Available to support ISACA conferences, events and community initiatives, contributing to its mission of advancing IT governance, audit, risk and cybersecurity professionals worldwide.</p>
+          </div>
+        </li>
+
+        <li class="career__extra-item">
+          <span class="career__extra-period"><time datetime="2026-10">10/2026</time></span>
+          <div class="career__extra-body">
+            <p class="career__extra-what" data-i18n="career.extra.2">Conference volunteer, ISACA Europe Conference 2026, Munich</p>
+            <p class="career__extra-note" data-i18n="career.extra.2.note">Three days from 7 – 9 October 2026 at the Holiday Inn Munich City Centre, supporting conference operations and meeting the European GRC and cybersecurity community in sessions on AI governance, cyber resilience and digital trust.</p>
+            <figure class="conf">
+              <div class="conf__pair">
+                <picture>
+                  <source type="image/webp" srcset="Conference-1-640.webp 640w, Conference-1-1280.webp 1280w" sizes="(max-width:640px) 46vw, (max-width:980px) 42vw, 470px">
+                  <img src="Conference-1-640.jpg" alt="At the ISACA Europe Conference 2026 in Munich" data-i18n-attr="alt:career.extra.2.alt1" width="640" height="480" loading="lazy" decoding="async">
+                </picture>
+                <picture>
+                  <source type="image/webp" srcset="Conference-2-640.webp 640w, Conference-2-800.webp 800w" sizes="(max-width:640px) 46vw, (max-width:980px) 42vw, 470px">
+                  <img src="Conference-2-640.jpg" alt="Impressions from the ISACA Europe Conference 2026 in Munich" data-i18n-attr="alt:career.extra.2.alt2" width="640" height="489" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <figcaption data-i18n="career.extra.2.caption">ISACA Europe Conference 2026, Munich</figcaption>
+            </figure>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -1594,7 +1702,7 @@ html.js .iso:not(.is-in) .mbar__tick{left:0}
     <div class="sec-head reveal">
       <span class="sec-num" aria-hidden="true">03</span>
       <h2 class="sec-title" id="cert-h" data-i18n="certs.title">Degrees &amp; Certifications</h2>
-      <span class="sec-meta" data-i18n="certs.count">3 achieved · 4 in progress</span>
+      <span class="sec-meta" data-i18n="certs.count">3 achieved · 5 in progress</span>
     </div>
 
     <div class="cert__legend reveal" aria-hidden="true">
@@ -1613,6 +1721,7 @@ html.js .iso:not(.is-in) .mbar__tick{left:0}
       <li class="cert cert--wip"><span class="sr-only" data-i18n="certs.srProgress">In progress: </span><span data-i18n="certs.3">MSc Computer Science · Heriot-Watt University</span></li>
       <li class="cert cert--wip"><span class="sr-only" data-i18n="certs.srProgress">In progress: </span><span data-i18n="certs.4">PECB ISO/IEC 27001 Lead Auditor</span></li>
       <li class="cert cert--wip"><span class="sr-only" data-i18n="certs.srProgress">In progress: </span><span data-i18n="certs.6">Associate of ISC2, path to CISSP</span></li>
+      <li class="cert cert--wip"><span class="sr-only" data-i18n="certs.srProgress">In progress: </span><span data-i18n="certs.8">ISACA Certified Cybersecurity Specialist (CCS)</span></li>
       <li class="cert cert--wip"><span class="sr-only" data-i18n="certs.srProgress">In progress: </span><span data-i18n="certs.7">TestDaF C1 German</span></li>
     </ul>
   </div>
@@ -1745,7 +1854,7 @@ html.js .iso:not(.is-in) .mbar__tick{left:0}
 'use strict';
 
 /* ============================================================================
-   DATA — EDIT ME
+   DATA: EDIT ME
    Every invented or self-assessed number on the site lives in this one object.
    Nothing below this block needs touching to retune the visualisations.
    ============================================================================ */
@@ -1796,9 +1905,9 @@ var DATA = {
 var I18N = {
 en: {
   '_comment': 'Canonical copy dictionary. Every user-facing string on the site lives here. The English values MUST mirror the static English markup in index.html, which is the no-JS and SEO fallback. Keys are stable identifiers: never rename one without updating index.html.',
-  'meta.title': 'Austin Bond — Information Security GRC | ISO 27001 & NIS2',
+  'meta.title': 'Austin Bond · Information Security GRC | ISO 27001 & NIS2',
   'meta.description': 'IT specialist and corporate trainer transitioning into Information Security GRC. ISO 27001:2022, EU NIS2 and ISO 27005. Completing an MSc in Computer Science at Heriot-Watt University. Building a GRC career in the German market.',
-  'meta.ogAlt': 'Austin Bond — Information Security GRC | ISO 27001 & NIS2 | MSc Computer Science',
+  'meta.ogAlt': 'Austin Bond · Information Security GRC | ISO 27001 & NIS2 | MSc Computer Science',
   'a11y.skip': 'Skip to main content',
   'a11y.langGroup': 'Language',
   'a11y.menuOpen': 'Open navigation menu',
@@ -1809,7 +1918,7 @@ en: {
   'lang.deAria': 'German',
   'nav.brandName': 'Austin Bond',
   'nav.credentialLine1': 'InfoSec GRC | ISMS',
-  'nav.brandHome': '— Home',
+  'nav.brandHome': 'Home page',
   'nav.credentialLine2': 'ISO 27001 & NIS2 | MSc Computer Science (In Progress)',
   'nav.link.career': 'Career',
   'nav.link.projects': 'Projects',
@@ -1818,7 +1927,8 @@ en: {
   'nav.link.connect': 'Connect',
   'hero.eyebrow': 'Information Security GRC · ISMS · ISO 27001:2022 · NIS2',
   'hero.name': 'Austin Bond',
-  'hero.role': 'IT Specialist & Corporate Trainer · Transitioning into Information Security GRC',
+  'hero.role': 'IT Specialist & Corporate Trainer',
+  'hero.roleDirection': 'Transitioning into Information Security GRC',
   'hero.bio': 'IT specialist and corporate trainer, transitioning into <strong>Information Security GRC</strong>. Studying for an MSc in Computer Science at <strong>Heriot-Watt University</strong>, with the goal of building a career in the German cybersecurity market. Good GRC needs two things: technical fluency and the ability to make compliance requirements understandable to the people who have to act on them. I have spent years developing both. Currently consulting pro-bono on a <strong>live ISO 27001 engagement</strong> and building practical skills through simulated portfolio exercises.',
   'hero.cta.primary': 'Get in Touch',
   'hero.cta.cv': 'Download CV',
@@ -1858,6 +1968,15 @@ en: {
   'career.5.role': 'Sole IT Specialist · Houston, TX',
   'career.5.desc': 'Server and infrastructure administration, identity and access management, risk and continuity planning, and an e-commerce platform migration.',
   'career.5.tags': ['Infrastructure','IAM','Continuity'],
+  'career.extra.title': 'Community and events',
+  'career.extra.1.period': '2026 – present',
+  'career.extra.1': 'Member of the ISACA Global Volunteer Pool',
+  'career.extra.1.note': 'Available to support ISACA conferences, events and community initiatives, contributing to its mission of advancing IT governance, audit, risk and cybersecurity professionals worldwide.',
+  'career.extra.2': 'Conference volunteer, ISACA Europe Conference 2026, Munich',
+  'career.extra.2.note': 'Three days from 7 – 9 October 2026 at the Holiday Inn Munich City Centre, supporting conference operations and meeting the European GRC and cybersecurity community in sessions on AI governance, cyber resilience and digital trust.',
+  'career.extra.2.caption': 'ISACA Europe Conference 2026, Munich',
+  'career.extra.2.alt1': 'At the ISACA Europe Conference 2026 in Munich',
+  'career.extra.2.alt2': 'Impressions from the ISACA Europe Conference 2026 in Munich',
   'projects.eyebrow': 'Projects',
   'projects.title': 'Selected engagements',
   'projects.p1.title': 'ISO 27001 GRC Consultant: Demiryürek Yapı A.Ş.',
@@ -1892,7 +2011,7 @@ en: {
   'iso.table.scale': 'Scale 0 to 5',
   'iso.domains': ['Governance & scope','Asset management','Access control','Supplier relationships','Incident management','Business continuity','Audit evidence'],
   'certs.title': 'Degrees & Certifications',
-  'certs.count': '3 achieved · 4 in progress',
+  'certs.count': '3 achieved · 5 in progress',
   'certs.legend.achieved': 'Achieved',
   'certs.legend.progress': 'In progress',
   'certs.srProgress': 'In progress: ',
@@ -1903,6 +2022,7 @@ en: {
   'certs.5': 'PECB NIS2 Directive Lead Implementer',
   'certs.6': 'Associate of ISC2, path to CISSP',
   'certs.7': 'TestDaF C1 German',
+  'certs.8': 'ISACA Certified Cybersecurity Specialist (CCS)',
   'tech.eyebrow': 'Expertise',
   'tech.title': 'Technical Proficiencies',
   'tech.tags': ['ISO 27001:2022','EU NIS2 Directive','DSGVO / GDPR','ISO 27005','BSI IT-Grundschutz','Verinice','NIST CSF','Gap Analysis','Risk Register','Statement of Applicability','Control Mapping','ISMS Scoping','Audit Evidence','Remediation Roadmaps','Policy Drafting','Vendor Risk','IAM Principles','Endpoint Security','macOS / iOS','GitHub','Markdown','HTML / CSS','Microsoft 365'],
@@ -1933,9 +2053,9 @@ en: {
    for native-speaker review before it is treated as final. */
 de: {
     "_comment": "Canonical copy dictionary. Every user-facing string on the site lives here. The English values MUST mirror the static English markup in index.html, which is the no-JS and SEO fallback. Keys are stable identifiers: never rename one without updating index.html.",
-    "meta.title": "Austin Bond — Informationssicherheit GRC | ISO 27001 & NIS2",
+    "meta.title": "Austin Bond · Informationssicherheit GRC | ISO 27001 & NIS2",
     "meta.description": "IT-Spezialist und Corporate Trainer im Übergang in die Informationssicherheit GRC. ISO 27001:2022, EU NIS2 und ISO 27005. Im MSc-Studium Computer Science an der Heriot-Watt University. Aufbau einer GRC-Karriere im deutschen Markt.",
-    "meta.ogAlt": "Austin Bond — Informationssicherheit GRC | ISO 27001 & NIS2 | MSc Computer Science",
+    "meta.ogAlt": "Austin Bond · Informationssicherheit GRC | ISO 27001 & NIS2 | MSc Computer Science",
     "a11y.skip": "Zum Hauptinhalt springen",
     "a11y.langGroup": "Sprache",
     "a11y.menuOpen": "Navigationsmenü öffnen",
@@ -1946,7 +2066,7 @@ de: {
     "lang.deAria": "Deutsch",
     "nav.brandName": "Austin Bond",
     "nav.credentialLine1": "InfoSec GRC | ISMS",
-    "nav.brandHome": "— Startseite",
+    "nav.brandHome": "Startseite",
     "nav.credentialLine2": "ISO 27001 & NIS2 | MSc Computer Science (laufend)",
     "nav.link.career": "Werdegang",
     "nav.link.projects": "Projekte",
@@ -1955,7 +2075,8 @@ de: {
     "nav.link.connect": "Kontakt",
     "hero.eyebrow": "Informationssicherheit GRC · ISMS · ISO 27001:2022 · NIS2",
     "hero.name": "Austin Bond",
-    "hero.role": "IT-Spezialist & Corporate Trainer · Wechsel in die Informationssicherheit GRC",
+    "hero.role": "IT-Spezialist & Corporate Trainer",
+    "hero.roleDirection": "Wechsel in die Informationssicherheit GRC",
     "hero.bio": "IT-Spezialist und Corporate Trainer im Übergang in die <strong>Informationssicherheit GRC<\/strong>. Studium des MSc Computer Science an der <strong>Heriot-Watt University<\/strong>, mit dem Ziel, eine Karriere im deutschen Cybersicherheitsmarkt aufzubauen. Gute GRC erfordert zweierlei: technisches Verständnis und die Fähigkeit, Compliance-Anforderungen für die Menschen verständlich zu machen, die danach handeln müssen. Beides habe ich über Jahre hinweg entwickelt. Aktuell berate ich pro bono in einem <strong>laufenden ISO-27001-Projekt<\/strong> und baue praktische Fähigkeiten durch simulierte Portfolio-Übungen auf.",
     "hero.cta.primary": "Kontakt aufnehmen",
     "hero.cta.cv": "Lebenslauf herunterladen",
@@ -2027,6 +2148,15 @@ de: {
       "IAM",
       "Kontinuität"
     ],
+    "career.extra.title": "Community und Veranstaltungen",
+    "career.extra.1.period": "2026 – heute",
+    "career.extra.1": "Mitglied im ISACA Global Volunteer Pool",
+    "career.extra.1.note": "Verfügbar für die Unterstützung von ISACA-Konferenzen, Veranstaltungen und Community-Initiativen, als Beitrag zum Auftrag des Verbands, Fachkräfte in IT-Governance, Audit, Risiko und Cybersicherheit weltweit zu fördern.",
+    "career.extra.2": "Volunteer bei der ISACA Europe Conference 2026 in München",
+    "career.extra.2.note": "Drei Konferenztage vom 7. – 9. Oktober 2026 im Holiday Inn Munich City Centre, mit Unterstützung des Konferenzbetriebs und direktem Austausch mit der europäischen GRC- und Cybersicherheits-Community in Sessions zu AI Governance, Cyber Resilience und Digital Trust.",
+    "career.extra.2.caption": "ISACA Europe Conference 2026, München",
+    "career.extra.2.alt1": "Auf der ISACA Europe Conference 2026 in München",
+    "career.extra.2.alt2": "Eindrücke von der ISACA Europe Conference 2026 in München",
     "projects.eyebrow": "Projekte",
     "projects.title": "Ausgewählte Projekte",
     "projects.p1.title": "ISO 27001 GRC-Berater: Demiryürek Yapı A.Ş.",
@@ -2084,7 +2214,7 @@ de: {
       "Auditnachweise"
     ],
     "certs.title": "Abschlüsse & Zertifizierungen",
-    "certs.count": "3 abgeschlossen · 4 laufend",
+    "certs.count": "3 abgeschlossen · 5 laufend",
     "certs.legend.achieved": "Abgeschlossen",
     "certs.legend.progress": "Laufend",
     "certs.srProgress": "Laufend: ",
@@ -2095,6 +2225,7 @@ de: {
     "certs.5": "PECB NIS2 Directive Lead Implementer",
     "certs.6": "Associate of ISC2, Weg zum CISSP",
     "certs.7": "TestDaF C1 Deutsch",
+    "certs.8": "ISACA Certified Cybersecurity Specialist (CCS)",
     "tech.eyebrow": "Expertise",
     "tech.title": "Technische Praxiskenntnisse",
     "tech.tags": [
@@ -2288,7 +2419,7 @@ function applyLang(lang, opts){
     else if (orig !== null) el.innerHTML = orig;
   });
 
-  /* Attributes — "attr:key" pairs, comma separated */
+  /* Attributes: "attr:key" pairs, comma separated */
   $$('[data-i18n-attr]').forEach(function(el){
     el.getAttribute('data-i18n-attr').split(',').forEach(function(pair){
       var bits = pair.split(':');
@@ -2390,7 +2521,7 @@ function renderHeatmap(){
   defs.appendChild(grad);
   svg.appendChild(defs);
 
-  /* Cells — gold wash deepens with likelihood x impact */
+  /* Cells: gold wash deepens with likelihood x impact */
   for (var r = 0; r < 5; r++) {
     for (var c = 0; c < 5; c++) {
       var likelihood = 5 - r;
@@ -2435,7 +2566,7 @@ function renderHeatmap(){
     var cy = padT + (5 - p.likelihood) * cell + cell / 2;
     var g = make('g');
     var label = domains[p.i] || '';
-    g.appendChild(make('title', {}, label + ' — ' + d.get('iso.heat.axisY') + ' ' + p.likelihood + ', ' + d.get('iso.heat.axisX') + ' ' + p.impact));
+    g.appendChild(make('title', {}, label + ': ' + d.get('iso.heat.axisY') + ' ' + p.likelihood + ', ' + d.get('iso.heat.axisX') + ' ' + p.impact));
     g.appendChild(make('circle', { cx: cx, cy: cy, r: 10, fill: 'url(#hmFoil)' }));
     g.appendChild(make('text', { x: cx, y: cy + 3.4, 'text-anchor': 'middle', 'class': 'heat__num' }, String(p.i + 1)));
     svg.appendChild(g);
