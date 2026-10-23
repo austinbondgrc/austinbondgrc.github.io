@@ -643,9 +643,9 @@ strong{font-weight:600;color:var(--text)}
 /* `height:auto` here is load-bearing. The markup carries width/height
    attributes so the browser reserves the right box before load, but the height
    attribute is a presentational hint. With no explicit height declaration it
-   wins, the used height stays locked at the image's 1056px natural height, and
+   wins, the used height stays locked at the image's 1294px natural height, and
    `aspect-ratio` never gets a chance to apply, and the portrait renders as a
-   368x1056 slab. Declaring height:auto hands the box back to aspect-ratio. */
+   368x1294 slab. Declaring height:auto hands the box back to aspect-ratio. */
 .portrait img{
   position:relative;
   z-index:1;
@@ -1448,12 +1448,13 @@ html.js .iso:not(.is-in) .mbar__tick{left:0}
         </svg>
         <span class="portrait__rule" aria-hidden="true"></span>
         <span class="portrait__frame" aria-hidden="true"></span>
-        <!-- Owner-supplied master, served exactly as exported: no downscale, no
-             re-encode. An earlier set of WebP/JPEG derivatives was visibly lossy
-             at the size the portrait renders, so do not reintroduce a lossy step
-             here. The width/height attributes keep the 4:4.3 box reserved before
-             the image arrives. -->
-        <img src="Headshot.jpeg" alt="Austin Bond" width="992" height="1056" fetchpriority="high" data-i18n-attr="alt:hero.photoAlt">
+        <!-- Owner-supplied master at its exported pixel size (1216x1294): no
+             downscale. The master is a single PNG-to-JPEG pass at q94; an
+             earlier set of WebP/JPEG derivatives was visibly lossy at the size
+             the portrait renders, so do not reintroduce a downscale step here.
+             The width/height attributes keep the 4:4.3 box reserved before the
+             image arrives. -->
+        <img src="Headshot.jpeg" alt="Austin Bond" width="1216" height="1294" fetchpriority="high" data-i18n-attr="alt:hero.photoAlt">
       </div>
     </div>
   </div>
