@@ -595,18 +595,24 @@ strong{font-weight:600;color:var(--text)}
 .btn svg{width:15px;height:15px;flex:none}
 
 .chips{display:flex;flex-wrap:wrap;gap:.4rem}
+/* A chip is a gold outline, never a navy fill. The old dark-blue pill read as a
+   disabled control, which is the wrong signal on a page whose chips are all
+   things already done. Resting is the ghost treatment .btn--ghost uses — gold
+   rim, no fill — and hover fills solid gold with dark text, the same move
+   .btn--primary makes. Dark text is not a style choice: cream --text on --gold
+   is 2.0:1, while --on-gold on --gold is 8.1:1. */
 .chip{
   font-size:.755rem;
   font-weight:480;
   letter-spacing:.035em;
   padding:.36rem .68rem;
-  border:1px solid var(--rule-hair);
+  border:1px solid var(--rule-strong);
   border-radius:2px;
   color:var(--text-soft);
-  background:rgba(4,24,58,.55);
+  background:transparent;
   transition:border-color .22s var(--ease),color .22s var(--ease),background .22s var(--ease);
 }
-.chip:hover{border-color:var(--rule-strong);color:var(--gold);background:var(--wash)}
+.chip:hover{border-color:var(--gold);color:var(--on-gold);background:var(--gold)}
 
 /* Portrait */
 .hero__portrait{position:relative;justify-self:end;width:100%;max-width:20rem}
@@ -1091,13 +1097,21 @@ strong{font-weight:600;color:var(--text)}
   gap:.55rem;
   font-size:.83rem;
   padding:.62rem .95rem;
-  border:1px solid var(--rule-hair);
+  border:1px solid var(--rule);
   border-radius:2px;
   color:var(--text-soft);
-  background:rgba(4,24,58,.5);
+  background:transparent;
   transition:border-color .22s var(--ease),background .22s var(--ease),color .22s var(--ease);
 }
-.cert:hover{border-color:var(--rule-strong);background:var(--wash)}
+/* Same reasoning as .chip: a navy fill reads as inactive. Here the outline
+   itself carries the status, so it replaces the fill instead of joining it:
+   achieved keeps the brighter rim and the diamond, in-progress keeps the
+   dashed rim and the dim text. */
+.cert:hover{border-color:var(--gold);background:var(--gold);color:var(--on-gold)}
+/* The achieved marker is gold, so on the gold fill it would disappear. Only the
+   diamond moves to dark: the in-progress marker is a hollow ring and should
+   stay hollow. */
+.cert--done:hover::before{background:var(--on-gold)}
 .cert--done{border-color:var(--rule-strong);color:var(--text)}
 .cert--done::before{
   content:'';
